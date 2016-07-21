@@ -1,5 +1,7 @@
 Install cask (works for Linux)
+
 curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+
 export PATH='$HOME/.cask/bin:$PATH' variable (or edit .bashrc or .profile)
 
 Install pallet via emacs package manager
