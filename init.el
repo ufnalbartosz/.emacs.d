@@ -45,11 +45,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; --- NEW PYTHON CONFIG --- ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; elpy (jedi-config:setup-keys seems not work with elpy-enable)
 (elpy-enable)
-;(setq elpy-rpc-backend "jedi")
-(setq elpy-rpc-backend "rope")
+(setq elpy-rpc-backend "jedi")
 
 (defun setup-keys-elpy:pop-tag-mark ()
   (global-set-key (kbd "M-,") 'pop-tag-mark)
@@ -59,15 +56,15 @@
 (add-hook 'python-mode-hook 'setup-keys-elpy:pop-tag-mark)
 
 
-;; (defun goto-def-or-rgrep ()
-;;   "Go to definition of thing at point or do an rgrep in project if that fails"
-;;   (interactive)
-;;   (condition-case nil (elpy-goto-definition)
-;;     (error (elpy-rgrep-symbol (thing-at-point 'symbol)))))
-;; (define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
-;;
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:complete-on-dot t)                 ; optional
+(defun goto-def-or-rgrep ()
+  "Go to definition of thing at point or do an rgrep in project if that fails"
+  (interactive)
+  (condition-case nil (elpy-goto-definition)
+    (error (elpy-rgrep-symbol (thing-at-point 'symbol)))))
 
+(define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
 ;; end of init.el
