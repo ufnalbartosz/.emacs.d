@@ -48,13 +48,26 @@
 
 ;; elpy (jedi-config:setup-keys seems not work with elpy-enable)
 (elpy-enable)
-(setq elpy-rpc-backend "jedi")
+;(setq elpy-rpc-backend "jedi")
+(setq elpy-rpc-backend "rope")
 
-;(require 'jedi)
-(defun jedi-config:setup-keys ()
-  (local-set-key (kbd "M-.") 'jedi:goto-definition)
-  (local-set-key (kbd "M-,") 'jedi:goto-definition-pop-marker)
-  (local-set-key (kbd "M-?") 'jedi:show-doc)
-  (local-set-key (kbd "M-/") 'jedi:get-in-function-call))
+(defun setup-keys-elpy:pop-tag-mark ()
+  (global-set-key (kbd "M-,") 'pop-tag-mark)
+  (global-unset-key (kbd "M-*"))
+  )
 
-;(add-hook 'python-mode-hook 'jedi-config:setup-keys)
+(add-hook 'python-mode-hook 'setup-keys-elpy:pop-tag-mark)
+
+
+;; (defun goto-def-or-rgrep ()
+;;   "Go to definition of thing at point or do an rgrep in project if that fails"
+;;   (interactive)
+;;   (condition-case nil (elpy-goto-definition)
+;;     (error (elpy-rgrep-symbol (thing-at-point 'symbol)))))
+;; (define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
+;;
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)                 ; optional
+
+
+;; end of init.el

@@ -17,3 +17,7 @@ sudo apt-get install fonts-inconsolata
 install elpy dependencies
 
 pip install jedi rope importmagic autopep8 yapf
+
+TODOs: (future hacks in elisp)
+
+- after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
