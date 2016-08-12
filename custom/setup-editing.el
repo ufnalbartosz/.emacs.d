@@ -164,9 +164,9 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 ;; movelines function ("~/.emacs.d/functions")
-(require 'move-lines)
-(global-set-key (kbd "M-p") 'move-lines-up)
-(global-set-key (kbd "M-n") 'move-lines-down)
+;(require 'move-lines)
+;(global-set-key (kbd "M-p") 'move-lines-up)
+;(global-set-key (kbd "M-n") 'move-lines-down)
 
 ;; Package expand-region
 (require 'expand-region)

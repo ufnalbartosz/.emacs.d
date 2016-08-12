@@ -54,8 +54,8 @@
                   (goto-char (posn-point (event-start event)))
                   (highlight-symbol-at-point)))
 
-(global-set-key (kbd "M-<down>") 'highlight-symbol-next)
-(global-set-key (kbd "M-<up>") 'highlight-symbol-prev)
+(global-set-key (kbd "M-n") 'highlight-symbol-next)
+(global-set-key (kbd "M-p") 'highlight-symbol-prev)
 
 ;; Customize theme: grandshell-theme-package
 (load-theme 'grandshell t)

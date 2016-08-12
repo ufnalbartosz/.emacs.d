@@ -45,6 +45,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; --- NEW PYTHON CONFIG --- ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'company)
+(add-hook 'afer-init-hook 'global-company-mode)
+
+(defun my-python-mode-hook()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
 (elpy-enable)
 (setq elpy-rpc-backend "jedi")
 
@@ -64,7 +72,8 @@
 
 (define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
 
-(add-hook 'python-mode-hook 'jedi:setup)
+;(add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+
 
 ;; end of init.el
