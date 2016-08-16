@@ -73,7 +73,4 @@
 (define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
 
 ;(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-
-
-;; end of init.el
+;(setq jedi:complete-on-dot t)

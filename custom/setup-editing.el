@@ -75,6 +75,9 @@
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
 
+;; TODO: bindings doesnt work since elpy override them after it's init in
+;; python mode, those starts at the program init, maybe initialiation in
+;; python-mode would fix this
 (global-set-key (kbd "M-<right>") 'sp-forward-slurp-sexp)
 (global-set-key (kbd "M-<left>") 'sp-forward-barf-sexp)
 
