@@ -21,3 +21,4 @@ pip install jedi rope importmagic autopep8 yapf
 TODOs: (future hacks in elisp)
 
 - after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
+- elpy should reindent correctly indented Python code (https://github.com/jorgenschaefer/elpy/issues/565)
