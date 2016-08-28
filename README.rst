@@ -20,24 +20,25 @@ TODOs:
 
 
 Installation guide:
- 1. Install cask (works for Linux):
-    curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 
- 2. Emacs system changes in '~/.bashrc' add:
-    PATH="$HOME/.cask/bin:$PATH"  # cask
-    PATH="$HOME/.local/bin:$PATH"  # elpy
+1. Install cask (works for Linux):
+  - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 
- 3. Install pallet via emacs package manager
-    `M-x package-list-packages RET pallet`
+2. Emacs system changes in '~/.bashrc' add:
+  - PATH="$HOME/.cask/bin:$PATH"  # cask
+  - PATH="$HOME/.local/bin:$PATH"  # elpy
 
- 4. Install packages via pallet
-    `M-x pallet-install`
+3. Install pallet via emacs package manager
+  - `M-x package-list-packages RET pallet`
 
- 5. Install Inconsolata font on your OS
-    `sudo apt-get install fonts-inconsolata`
+4. Install packages via pallet
+  - `M-x pallet-install`
 
- 6. Install elpy dependencies:
-    `pip install jedi rope importmagic autopep8 yapf`
+5. Install Inconsolata font on your OS
+  - `sudo apt-get install fonts-inconsolata`
+
+6. Install elpy dependencies:
+  - `pip install jedi rope importmagic autopep8 yapf`
 
 Usefull links:
   - https://ebzzry.github.io/emacs-pairs.html#configuration (smartparens)
