@@ -1,22 +1,22 @@
 TODOs:
 
-- after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
+* after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
 
-1. elpy-pop-marker, bo "M-." (go-to-definition) works
+* elpy-pop-marker, bo "M-." (go-to-definition) works
   - pop-tag-mark "M-*",
   - bind to "M-," (but with elisp function, which make hook only to elpy-mode)
 
-2. Elpy 'No definition found'
+* Elpy 'No definition found'
   - `pip install rope-py3k`
   - (setq elpy-rcp-backend "rope")
   - https://github.com/jorgenschaefer/elpy/issues/74 (issue tips)
 
-3. install 'ropemacs which depends on 'rope & 'pymacs (README's links)
+* install 'ropemacs which depends on 'rope & 'pymacs (README's links)
   - https://github.com/python-rope/ropemacs
   - https://github.com/python-rope/rope/
   - https://github.com/pinard/Pymacs
 
-5. enable autocomplete in emacs python interpreter
+* enable autocomplete in emacs python interpreter
 
 
 Installation guide:
