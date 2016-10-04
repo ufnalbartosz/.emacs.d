@@ -39,7 +39,7 @@ Installation guide:
   - `sudo apt-get install fonts-inconsolata`
 
 6. Install elpy dependencies:
-  - `pip install jedi rope importmagic autopep8 yapf`
+  - `pip install jedi rope importmagic autopep8 yapf flake8`
 
 Usefull links:
   - https://ebzzry.github.io/emacs-pairs.html#configuration (smartparens)
