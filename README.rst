@@ -32,6 +32,7 @@ Installation guide:
   - `M-x package-list-packages RET pallet`
 
 4. Install packages via pallet
+  - `M-x pallet-mode`
   - `M-x pallet-install`
 
 5. Install Inconsolata font on your OS
