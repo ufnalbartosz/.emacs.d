@@ -17,6 +17,7 @@
 (depends-on "elpy")
 (depends-on "epc")
 (depends-on "epl")
+(depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "f")
 (depends-on "find-file-in-project")

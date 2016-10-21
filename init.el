@@ -1,6 +1,12 @@
 ;M-x `describe-key`: and type the key combination then Emacs will then show the command that key press is bound to.
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
 
+(package-initialize)
+
+; exec-path-from-shell package:
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -80,7 +86,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elpy-test-runner (quote elpy-test-trial-runner))
+ '(elpy-test-runner (quote elpy-test-nose-runner))
  '(scroll-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
