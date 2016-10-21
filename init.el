@@ -1,11 +1,7 @@
 ;M-x `describe-key`: and type the key combination then Emacs will then show the command that key press is bound to.
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
-
-(package-initialize)
-
-; exec-path-from-shell package:
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; (setq package-enable-at-startup nil)
+;; (package-initialize)
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
@@ -26,6 +22,10 @@
 (require 'setup-files)
 
 (windmove-default-keybindings)
+
+;; exec-path-from-shell package:
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; Package: projejctile
 (require 'projectile)
@@ -87,6 +87,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(elpy-test-runner (quote elpy-test-nose-runner))
+ ;; '(package-selected-packages
+ ;;   (quote
+ ;;    (exec-path-from-shell zygospore ws-butler volatile-highlights undo-tree smartparens pallet multiple-cursors move-dup jedi iedit highlight-symbol helm-swoop helm-projectile helm-company grandshell-theme expand-region elpy dtrt-indent company-jedi comment-dwim-2 clean-aindent-mode anzu)))
  '(scroll-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
