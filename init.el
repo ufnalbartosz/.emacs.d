@@ -100,3 +100,10 @@
 
 ; completly turn off alarms:
 (setq ring-bell-function 'ignore)
+
+;; rebind of <home> and <end> keys for OSX
+(global-set-key (kbd "<home>") 'prelude-move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+
+;; add objective-c mode
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
