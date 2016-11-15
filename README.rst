@@ -41,6 +41,17 @@ Installation guide:
 6. Install elpy dependencies:
   - `pip install jedi rope importmagic autopep8 yapf flake8`
 
+7. MacOS config
+  - create emacs.sh script into $HOME/.emacs.d/:
+    #!/bin/sh
+    /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+  - change its permissions:
+    `chmod +x emacs.sh`
+  - edit .bash_profile:
+    alias emacs=$HOME/.emacs.d/emacs.sh
+  - download Inconsolata.otf and put it into:
+    $HOME/Liblary/Fonts/
+
 Usefull links:
   - https://ebzzry.github.io/emacs-pairs.html#configuration (smartparens)
   - https://realpython.com/blog/python/emacs-the-best-python-editor/ (guide)
