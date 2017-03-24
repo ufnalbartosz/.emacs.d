@@ -1,5 +1,7 @@
 TODOs:
 
+* C-S-c C-S-c doesn't work in no-window mode eg. can't use with git
+
 * after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
 
 * elpy-pop-marker, bo "M-." (go-to-definition) works
@@ -19,7 +21,7 @@ TODOs:
 * enable autocomplete in emacs python interpreter
 
 
-Installation guide:
+Installation guide for Emacs 24.4:
 
 1. Install cask (works for Linux):
   - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python

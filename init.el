@@ -16,6 +16,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")
 
+;; TAKES FOREVER
 (require 'setup-helm)
 (require 'setup-editing)
 (require 'setup-faces-and-ui)
