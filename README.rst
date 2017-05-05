@@ -41,7 +41,8 @@ Installation guide for Emacs 24.4:
   - `sudo apt-get install fonts-inconsolata`
 
 6. Install elpy dependencies:
-  - `pip install jedi rope importmagic autopep8 yapf flake8`
+  - `pip install jedi rope importmagic autopep8 yapf flake8 epc`
+  - run `M-x jedi:install-server`
 
 7. MacOS config
   - create emacs.sh script into $HOME/.emacs.d/:
