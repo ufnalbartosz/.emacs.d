@@ -68,3 +68,20 @@
 ;; Cursor position information
 ;; display the line number at point
 (column-number-mode 1)
+
+; completly turn off alarms:
+(setq ring-bell-function 'ignore)
+
+;; rebind of <home> and <end> keys for OSX
+(global-set-key (kbd "<home>") 'prelude-move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+
+;; change command to meta(alt)
+(setq mac-command-modifier 'meta)
+
+;; SHELL MODE UI
+;; output and prompt read-only
+(setq comint-prompt-read-only t)
+(defun my-comint-preoutput-turn-buffer-read-only (text)
+  (propertize text 'read-only t))
+(add-hook 'comint-preoutput-filter-functions 'my-comint-preoutput-turn-buffer-read-only)

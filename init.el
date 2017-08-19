@@ -8,6 +8,7 @@
 (require 'pallet)
 (pallet-mode t)
 
+;; garbage collector
 (setq gc-cons-threshold 100000000)
 (setq inhibit-startup-message t)
 
@@ -16,7 +17,6 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")
 
-;; TAKES FOREVER
 (require 'setup-helm)
 (require 'setup-editing)
 (require 'setup-faces-and-ui)
@@ -53,7 +53,7 @@
 ;;; --- NEW PYTHON CONFIG --- ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
-(add-hook 'afer-init-hook 'global-company-mode)
+add-hook 'afer-init-hook 'global-company-mode)
 
 (defun my-python-mode-hook()
   (add-to-list 'company-backends 'company-jedi))
@@ -79,32 +79,5 @@
 
 (define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
 
-;(add-hook 'python-mode-hook 'jedi:setup)
-;(setq jedi:complete-on-dot t)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(elpy-test-runner (quote elpy-test-nose-runner))
- ;; '(package-selected-packages
- ;;   (quote
- ;;    (exec-path-from-shell zygospore ws-butler volatile-highlights undo-tree smartparens pallet multiple-cursors move-dup jedi iedit highlight-symbol helm-swoop helm-projectile helm-company grandshell-theme expand-region elpy dtrt-indent company-jedi comment-dwim-2 clean-aindent-mode anzu)))
- '(scroll-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-; completly turn off alarms:
-(setq ring-bell-function 'ignore)
-
-;; rebind of <home> and <end> keys for OSX
-(global-set-key (kbd "<home>") 'prelude-move-beginning-of-line)
-(global-set-key (kbd "<end>") 'move-end-of-line)
-
-;; add objective-c mode
-(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
