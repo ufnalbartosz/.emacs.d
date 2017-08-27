@@ -35,6 +35,9 @@
 (add-to-list 'default-frame-alist '(width  . 170))
 (add-to-list 'default-frame-alist '(height . 43))
 
+;; customized option default for macbook pro display screen size (1440x800) and (1920x1200)
+(add-to-list 'default-frame-alist '(top . -400))  ;; 800 - 1200 (and still has 50 margin, magic)
+(add-to-list 'default-frame-alist '(left . 1490))  ;; 1440 + 50
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: highlight-numbers         ;;

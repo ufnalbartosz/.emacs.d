@@ -1,7 +1,7 @@
 ;M-x `describe-key`: and type the key combination then Emacs will then show the command that key press is bound to.
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
-;; (setq package-enable-at-startup nil)
-;; (package-initialize)
+(setq package-enable-at-startup nil)
+(package-initialize)
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
@@ -16,6 +16,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")
+(add-to-list 'load-path "~/.emacs.d/development")
 
 (require 'setup-helm)
 (require 'setup-editing)
@@ -49,35 +50,6 @@
                              "~/org/school.org"
                              "~/org/home.org"))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; --- NEW PYTHON CONFIG --- ;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'company)
-add-hook 'afer-init-hook 'global-company-mode)
 
-(defun my-python-mode-hook()
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my-python-mode-hook)
-
-(elpy-enable)
-(setq elpy-rpc-backend "jedi")
-
-(defun setup-keys-elpy:pop-tag-mark ()
-  (global-set-key (kbd "M-,") 'pop-tag-mark)
-  (global-unset-key (kbd "M-*"))
-  )
-
-(add-hook 'python-mode-hook 'setup-keys-elpy:pop-tag-mark)
-
-
-(defun goto-def-or-rgrep ()
-  "Go to definition of thing at point or do an rgrep in project if that fails"
-  (interactive)
-  (condition-case nil (elpy-goto-definition)
-    (error (elpy-rgrep-symbol (thing-at-point 'symbol)))))
-
-(define-key elpy-mode-map (kbd "M-.") 'goto-def-or-rgrep)
-
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;; LOAD DEVELOPMENT CONFIGURATIONS
+(require 'python-config)
