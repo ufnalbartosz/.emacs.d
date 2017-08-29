@@ -29,16 +29,6 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; Package: projejctile
-(require 'projectile)
-(projectile-global-mode)
-(setq projectile-enable-caching t)
-
-(require 'helm-projectile)
-(helm-projectile-on)
-(setq projectile-completion-system 'helm)
-(setq projectile-indexing-method 'native)
-
 ;; Org-mode configure
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
@@ -50,6 +40,18 @@
                              "~/org/school.org"
                              "~/org/home.org"))
 
+;; Package: projejctile
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+
+(require 'helm-projectile)
+(helm-projectile-on)
+(setq projectile-completion-system 'helm)
+(setq projectile-indexing-method 'native)
+
+(require 'magit)
+(global-set-key (kbd "C-c g") 'magit-status)
 
 ;; LOAD DEVELOPMENT CONFIGURATIONS
 (require 'python-config)

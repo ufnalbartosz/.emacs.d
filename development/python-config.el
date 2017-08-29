@@ -2,16 +2,30 @@
 ;; elpy setup
 (elpy-enable)
 (setq elpy-rpc-backend "jedi")
+(setq elpy-rpc-timeout nil)
+(setq elpy-rpc-ignored-buffer-size 262144)
 
 ;; jedi-direx (code browser)
 (eval-after-load "python"
   '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
-(add-hook 'jedi-mode-hook 'jedi-direx:setup)
+(add-hook 'elpy-mode-hook 'jedi-direx:setup)
 
-;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(require 'jedi-direx)
+(setq jedi-direx:hide-imports t)
+
+;; make window appear on the left side
+(require 'popwin)
+(popwin-mode 1)
+(push '(direx:direx-mode :position left :width 35 :dedicated t)
+      popwin:special-display-config)
+
+;; enable edi so that jedi-direx could work
+(add-hook 'elpy-mode-hook 'jedi:setup)
+
+;; ;; use flycheck not flymake with elpy
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
@@ -24,9 +38,9 @@
   (pyvenv-activate (concat (getenv "WORKON_HOME") "/tensorflow2.7")))
 
 ;; displays parameters scattered on multiple lines
-(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
-(semantic-mode 1)
-(require 'stickyfunc-enhance)
+;; (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+;; (semantic-mode 1)
+;; (require 'stickyfunc-enhance)
 
 ;; change default keybinding for go-back-from-definition
 (defun setup-keys-elpy:pop-tag-mark ()
