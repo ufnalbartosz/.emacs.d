@@ -1,7 +1,10 @@
 ;M-x `describe-key`: and type the key combination then Emacs will then show the command that key press is bound to.
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
-(setq package-enable-at-startup nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
 (package-initialize)
+
+(setq package-enable-at-startup nil)
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
@@ -11,8 +14,6 @@
 ;; garbage collector
 (setq gc-cons-threshold 100000000)
 (setq inhibit-startup-message t)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")

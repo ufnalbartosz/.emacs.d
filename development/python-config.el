@@ -34,6 +34,7 @@
 ;; pyvnenv-workon setup, add export $WORKON_HOME=/path/to/env/dir to .profile or .bash_profile or .bashrc file
 (setenv "WORKON_HOME" (shell-command-to-string "$SHELL --login -c 'echo -n $WORKON_HOME'"))
 ;; setup default virtualenv at emacs startup to tensorflow2.7
+;; syntax if path exists:
 (let ((virtualenv-workon-starts-python nil))
   (pyvenv-activate (concat (getenv "WORKON_HOME") "/tensorflow2.7")))
 
