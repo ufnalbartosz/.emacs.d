@@ -1,6 +1,10 @@
 ;; PYTHON CUSTOM CONFIG:
 ;; elpy setup
 (elpy-enable)
+
+;; enable edi so that jedi-direx could work
+(add-hook 'elpy-mode-hook 'jedi:setup)
+
 (setq elpy-rpc-backend "jedi")
 (setq elpy-rpc-timeout nil)
 (setq elpy-rpc-ignored-buffer-size 262144)
@@ -19,8 +23,6 @@
 (push '(direx:direx-mode :position left :width 35 :dedicated t)
       popwin:special-display-config)
 
-;; enable edi so that jedi-direx could work
-(add-hook 'elpy-mode-hook 'jedi:setup)
 
 ;; ;; use flycheck not flymake with elpy
 ;; (when (require 'flycheck nil t)
