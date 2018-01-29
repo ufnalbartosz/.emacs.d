@@ -21,7 +21,7 @@ TODOs:
 * enable autocomplete in emacs python interpreter
 
 
-Installation guide for Emacs 24.4:
+Installation guide for Emacs 25.2:
 
 1. Install cask (works for Linux):
   - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
@@ -45,13 +45,34 @@ Installation guide for Emacs 24.4:
   - run `M-x jedi:install-server`
 
 7. MacOS config
-  - create emacs.sh script into $HOME/.emacs.d/:
-    #!/bin/sh
-    /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
-  - change its permissions:
-    `chmod +x emacs.sh`
+  - change $HOME/emacs.d/ scripts permissions:
+    `chmod +x emacs.sh emacsclient.sh`
   - edit .bash_profile:
     alias emacs=$HOME/.emacs.d/emacs.sh
+    alias emacs=$HOME/.emacs.d/emacsclient.sh
+    - create ~/Library/LaunchAgents/gnu.emacs.daemon.plist (startup daemon):
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
+          "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
+       <plist version="1.0">
+        <dict> 
+          <key>Label</key>
+          <string>gnu.emacs.daemon</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>/Applications/Emacs.app/Contents/MacOS/Emacs</string>
+            <string>--daemon</string>
+          </array>
+         <key>RunAtLoad</key>
+         <true/>
+         <key>ServiceDescription</key>
+         <string>Gnu Emacs Daemon</string>
+        </dict>
+      </plist>
+
+  - load it via:
+    launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
   - download Inconsolata.otf and put it into:
     $HOME/Liblary/Fonts/
 

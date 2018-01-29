@@ -10,12 +10,8 @@
 (setq elpy-rpc-ignored-buffer-size 262144)
 
 ;; jedi-direx (code browser)
-(eval-after-load "python"
-  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
-(add-hook 'elpy-mode-hook 'jedi-direx:setup)
-
-(require 'jedi-direx)
-(setq jedi-direx:hide-imports t)
+;(require 'jedi-direx)
+;; (setq jedi-direx:hide-imports t)
 
 ;; make window appear on the left side
 (require 'popwin)
@@ -23,6 +19,9 @@
 (push '(direx:direx-mode :position left :width 35 :dedicated t)
       popwin:special-display-config)
 
+;; (eval-after-load "python"
+;;   '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
+;; (add-hook 'jedi-mode-hook 'jedi-direx:setup)
 
 ;; ;; use flycheck not flymake with elpy
 ;; (when (require 'flycheck nil t)

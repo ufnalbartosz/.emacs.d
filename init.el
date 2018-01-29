@@ -56,3 +56,11 @@
 
 ;; LOAD DEVELOPMENT CONFIGURATIONS
 (require 'python-config)
+
+
+;; custom
+(defun my-disable-scroll-bars (frame)
+  (modify-frame-parameters frame
+                           '((vertical-scroll-bars . nil)
+                             (horizaontal-scroll-bars . nil))))
+(add-hook 'after-make-frame-functions 'my-disable-scroll-bars)

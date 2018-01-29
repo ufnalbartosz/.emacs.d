@@ -25,19 +25,19 @@
 
 ;; change font to Inconsolata for better looking text
 ;; remember to install the font Inconsolata first
-(setq default-frame-alist '((font . "Inconsolata-14")))
+(setq default-frame-alist '((font . "Inconsolata-16")))
 ;; set italic font for italic face, since Emacs does not set italic
 ;; face automatically
 (set-face-attribute 'italic nil
                     :family "Inconsolata-Italic")
 ;; set maximized window size OS X
-;(set-frame-parameter nil 'fullscreen 'fullboth)
-(add-to-list 'default-frame-alist '(width  . 170))
-(add-to-list 'default-frame-alist '(height . 43))
+;; (set-frame-parameter nil 'fullscreen 'fullboth)
+;; (add-to-list 'default-frame-alist '(width  . 170))
+;; (add-to-list 'default-frame-alist '(height . 43))
 
 ;; customized option default for macbook pro display screen size (1440x800) and (1920x1200)
-(add-to-list 'default-frame-alist '(top . -400))  ;; 800 - 1200 (and still has 50 margin, magic)
-(add-to-list 'default-frame-alist '(left . 1490))  ;; 1440 + 50
+;; (add-to-list 'default-frame-alist '(top . -400))  ;; 800 - 1200 (and still has 50 margin, magic)
+;; (add-to-list 'default-frame-alist '(left . 1490))  ;; 1440 + 50
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: highlight-numbers         ;;
