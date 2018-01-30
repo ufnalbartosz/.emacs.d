@@ -9,6 +9,7 @@
 (depends-on "comment-dwim-2")
 (depends-on "company")
 (depends-on "company-jedi")
+(depends-on "company-quickhelp")
 (depends-on "concurrent")
 (depends-on "ctable")
 (depends-on "dash")

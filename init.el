@@ -4,7 +4,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (package-initialize)
 
-(setq package-enable-at-startup nil)
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+        ("http" . "10.144.1.10:8080")
+        ("https" . "10.144.1.10:8080")))
+
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
@@ -18,6 +22,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")
 (add-to-list 'load-path "~/.emacs.d/development")
+(add-to-list 'load-path "~/.emacs.d/modes")
 
 (require 'setup-helm)
 (require 'setup-editing)
@@ -26,9 +31,9 @@
 
 (windmove-default-keybindings)
 
-;; exec-path-from-shell package:
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; ;; exec-path-from-shell package:
+;; (when (memq window-system '(mac ns))
+;;   (exec-path-from-shell-initialize))
 
 ;; Org-mode configure
 (require 'org)
@@ -57,10 +62,17 @@
 ;; LOAD DEVELOPMENT CONFIGURATIONS
 (require 'python-config)
 
-
 ;; custom
 (defun my-disable-scroll-bars (frame)
   (modify-frame-parameters frame
                            '((vertical-scroll-bars . nil)
                              (horizaontal-scroll-bars . nil))))
 (add-hook 'after-make-frame-functions 'my-disable-scroll-bars)
+
+(require 'ttcn3)
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer :ignore-auto :noconfirm)
+)
