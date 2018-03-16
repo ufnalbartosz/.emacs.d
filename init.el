@@ -4,8 +4,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (package-initialize)
 
-(setq package-enable-at-startup nil)
-
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -18,6 +16,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'load-path "~/.emacs.d/functions")
 (add-to-list 'load-path "~/.emacs.d/development")
+(add-to-list 'load-path "~/.emacs.d/modes")
 
 (require 'setup-helm)
 (require 'setup-editing)
@@ -25,21 +24,6 @@
 (require 'setup-files)
 
 (windmove-default-keybindings)
-
-;; exec-path-from-shell package:
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; Org-mode configure
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
-
-; C-c a t to enter the global todo list
-(setq org-agenda-files (list "~/org/work.org"
-                             "~/org/school.org"
-                             "~/org/home.org"))
 
 ;; Package: projejctile
 (require 'projectile)
@@ -56,3 +40,4 @@
 
 ;; LOAD DEVELOPMENT CONFIGURATIONS
 (require 'python-config)
+(require 'ttcn3)

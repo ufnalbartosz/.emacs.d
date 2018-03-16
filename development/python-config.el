@@ -2,32 +2,29 @@
 ;; elpy setup
 (elpy-enable)
 
-;; enable edi so that jedi-direx could work
-(add-hook 'elpy-mode-hook 'jedi:setup)
+;; disable ac
+(defadvice auto-complete-mode (around disable-auto-complete-for-python)
+    (unless (eq major-mode 'python-mode) ad-do-it))
+
+(ad-activate 'auto-complete-mode)
+(add-hook 'elpy-mode-hook 'global-company-mode)
 
 (setq elpy-rpc-backend "jedi")
 (setq elpy-rpc-timeout nil)
 (setq elpy-rpc-ignored-buffer-size 262144)
 
-;; jedi-direx (code browser)
-(eval-after-load "python"
-  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
-(add-hook 'elpy-mode-hook 'jedi-direx:setup)
+;; F5 compile tests elpy
+(global-set-key (kbd "<f5>") 'elpy-test)
 
-(require 'jedi-direx)
-(setq jedi-direx:hide-imports t)
+;; (eval-after-load 'company
+;;   '(define-key company-active-map (kbd "C-c h h") #'company-quickhelp-manual-begin))
+(add-hook 'elpy-mode-hook (company-quickhelp-mode 1))
 
 ;; make window appear on the left side
 (require 'popwin)
 (popwin-mode 1)
 (push '(direx:direx-mode :position left :width 35 :dedicated t)
       popwin:special-display-config)
-
-
-;; ;; use flycheck not flymake with elpy
-;; (when (require 'flycheck nil t)
-;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
@@ -36,9 +33,6 @@
 ;; pyvnenv-workon setup, add export $WORKON_HOME=/path/to/env/dir to .profile or .bash_profile or .bashrc file
 (setenv "WORKON_HOME" (shell-command-to-string "$SHELL --login -c 'echo -n $WORKON_HOME'"))
 ;; setup default virtualenv at emacs startup to tensorflow2.7
-;; syntax if path exists:
-(let ((virtualenv-workon-starts-python nil))
-  (pyvenv-activate (concat (getenv "WORKON_HOME") "/tensorflow2.7")))
 
 ;; displays parameters scattered on multiple lines
 ;; (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
