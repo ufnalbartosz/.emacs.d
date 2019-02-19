@@ -7,7 +7,6 @@
     (unless (eq major-mode 'python-mode) ad-do-it))
 
 (ad-activate 'auto-complete-mode)
-
 (add-hook 'elpy-mode-hook 'global-company-mode)
 
 (setq elpy-rpc-backend "jedi")
@@ -17,7 +16,8 @@
 ;; F5 compile tests elpy
 (global-set-key (kbd "<f5>") 'elpy-test)
 
-
+;; (eval-after-load 'company
+;;   '(define-key company-active-map (kbd "C-c h h") #'company-quickhelp-manual-begin))
 (add-hook 'elpy-mode-hook (company-quickhelp-mode 1))
 
 ;; make window appear on the left side

@@ -13,6 +13,12 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+(defun my-disable-scroll-bars (frame)
+  (modify-frame-parameters frame
+                           '((vertical-scroll-bars . nil)
+                             (horizaontal-scroll-bars . nil))))
+(add-hook 'after-make-frame-functions 'my-disable-scroll-bars)
+
 (size-indication-mode t)
 
 ;; more useful frame title, that show either a file or a
@@ -66,7 +72,7 @@
 (global-set-key (kbd "M-p") 'highlight-symbol-prev)
 
 ;; Customize theme: grandshell-theme-package
-(load-theme 'grandshell t)
+(load-theme 'zenburn t)
 
 ;; Cursor position information
 ;; display the line number at point

@@ -4,12 +4,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (package-initialize)
 
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-        ("http" . "10.144.1.10:8080")
-        ("https" . "10.144.1.10:8080")))
-
-
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
