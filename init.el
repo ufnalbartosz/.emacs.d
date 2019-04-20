@@ -4,7 +4,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (package-initialize)
 
-(require 'cask "~/.cask/cask.el")
+(require 'cask "/usr/local/Cellar/cask/0.8.4/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)

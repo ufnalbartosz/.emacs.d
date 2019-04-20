@@ -63,4 +63,5 @@
 (depends-on "with-editor")
 (depends-on "ws-butler")
 (depends-on "yasnippet")
+(depends-on "zenburn-theme")
 (depends-on "zygospore")

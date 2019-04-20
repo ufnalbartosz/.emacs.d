@@ -1,7 +1,5 @@
 TODOs:
 
-* C-S-c C-S-c doesn't work in no-window mode eg. can't use with git
-
 * after choosing project with helm-projectile (C-c p p) bind pyvenv-workon to project (if elpy-env nil)
 
 * elpy-pop-marker, bo "M-." (go-to-definition) works

@@ -31,7 +31,7 @@
 
 ;; change font to Inconsolata for better looking text
 ;; remember to install the font Inconsolata first
-(setq default-frame-alist '((font . "Inconsolata-12")))
+(setq default-frame-alist '((font . "Inconsolata-14")))
 ;; set italic font for italic face, since Emacs does not set italic
 ;; face automatically
 (set-face-attribute 'italic nil
@@ -72,7 +72,8 @@
 (global-set-key (kbd "M-p") 'highlight-symbol-prev)
 
 ;; Customize theme: grandshell-theme-package
-(load-theme 'zenburn t)
+;; (load-theme 'zenburn t)
+(load-theme 'grandshell t)
 
 ;; Cursor position information
 ;; display the line number at point
