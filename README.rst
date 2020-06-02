@@ -19,28 +19,27 @@ TODOs:
 * enable autocomplete in emacs python interpreter
 
 
-Installation guide for Emacs 25.2:
+Installation guide:
+1. Install Emacs:
+ - `brew cask install emacs`
 
-1. Install cask (works for Linux):
-  - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+2. Install Cask:
+ - `brew install cask`
 
-2. Emacs system changes in '~/.bashrc' add:
-  - PATH="$HOME/.cask/bin:$PATH"  # cask
-  - PATH="$HOME/.local/bin:$PATH"  # elpy
-
-3. Install pallet via emacs package manager
+3. Install pallet:
   - `M-x package-list-packages RET pallet`
 
 4. Install packages via pallet
   - `M-x pallet-mode`
   - `M-x pallet-install`
 
-5. Install Inconsolata font on your OS
-  - `sudo apt-get install fonts-inconsolata`
+5. Install Inconsolata font
+  - `brew tap homebrew/cask-fonts`
+  - `brew cask install font-inconsolata`
 
 6. Install elpy dependencies:
   - `pip install jedi importmagic autopep8 yapf flake8 epc virtualenvwrapper`
-  - run `M-x jedi:install-server`
+  - `M-x jedi:install-server`
 
 7. MacOS config
   - change $HOME/emacs.d/ scripts permissions:
@@ -71,8 +70,6 @@ Installation guide for Emacs 25.2:
 
   - load it via:
     launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-  - download Inconsolata.otf and put it into:
-    $HOME/Liblary/Fonts/
 
 Usefull links:
   - https://ebzzry.github.io/emacs-pairs.html#configuration (smartparens)
