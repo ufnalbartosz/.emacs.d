@@ -11,3 +11,7 @@ auto-save-list/
 snippets/
 .python-environments/
 semanticdb/
+elpa/
+network-security.data
+site-lisp/
+transient/
