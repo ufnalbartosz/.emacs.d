@@ -31,11 +31,11 @@
 
 ;; change font to Inconsolata for better looking text
 ;; remember to install the font Inconsolata first
-(setq default-frame-alist '((font . "Inconsolata-14")))
+;; (setq default-frame-alist '((font . "Inconsolata-12")))
 ;; set italic font for italic face, since Emacs does not set italic
 ;; face automatically
-(set-face-attribute 'italic nil
-                    :family "Inconsolata-Italic")
+;; (set-face-attribute 'italic nil
+;;                     :family "Inconsolata-Italic")
 ;; set maximized window size OS X
 ;; (set-frame-parameter nil 'fullscreen 'fullboth)
 ;; (add-to-list 'default-frame-alist '(width  . 170))
