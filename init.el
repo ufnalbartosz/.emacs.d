@@ -2,10 +2,10 @@
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(package-initialize)
 
-(require 'cask "/usr/local/Cellar/cask/0.8.4/cask.el")
+(require 'cask "/home/bartosz/.cask/cask.el")
 (cask-initialize)
+
 (require 'pallet)
 (pallet-mode t)
 
@@ -69,4 +69,4 @@
   "Revert buffer without confirmation."
   (interactive)
   (revert-buffer :ignore-auto :noconfirm)
-)
+  )
