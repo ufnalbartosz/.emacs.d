@@ -3,8 +3,8 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(require 'cask "/home/bartosz/.cask/cask.el")
-(cask-initialize)
+(require 'cask "~/.cask/cask.el")
+(cask--initialize)
 
 (require 'pallet)
 (pallet-mode t)
