@@ -72,8 +72,8 @@
 (global-set-key (kbd "M-p") 'highlight-symbol-prev)
 
 ;; Customize theme: grandshell-theme-package
-;; (load-theme 'zenburn t)
-(load-theme 'grandshell t)
+(load-theme 'zenburn t)
+;; (load-theme 'grandshell t)
 
 ;; Cursor position information
 ;; display the line number at point
