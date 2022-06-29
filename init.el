@@ -2,6 +2,7 @@
 ;M-x `describe-bindings`: to see a list of ALL keybindings that's active for your current buffer
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+(setq warning-minimum-level :emergency)
 
 (require 'cask "~/.cask/cask.el")
 (cask--initialize)
