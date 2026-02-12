@@ -1,12 +1,11 @@
 (provide 'setup-faces-and-ui)
 
-;; you won't need any of the bar thingies
-;; turn it off to save screen estate
+;; turn off UI chrome to save screen estate
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-;; the blinking cursor is nothing, but an annoyance
+;; the blinking cursor is nothing but an annoyance
 (blink-cursor-mode -1)
 
 (setq scroll-margin 0
@@ -23,74 +22,38 @@
 
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
-;; taken from prelude-ui.el
 (setq frame-title-format
       '("" invocation-name " - " (:eval (if (buffer-file-name)
                                                     (abbreviate-file-name (buffer-file-name))
                                                   "%b"))))
 
-;; change font to Inconsolata for better looking text
-;; remember to install the font Inconsolata first
-;; (setq default-frame-alist '((font . "Inconsolata-12")))
-;; set italic font for italic face, since Emacs does not set italic
-;; face automatically
-;; (set-face-attribute 'italic nil
-;;                     :family "Inconsolata-Italic")
-;; set maximized window size OS X
-;; (set-frame-parameter nil 'fullscreen 'fullboth)
-;; (add-to-list 'default-frame-alist '(width  . 170))
-;; (add-to-list 'default-frame-alist '(height . 43))
+;; --- Theme ---
+(use-package zenburn-theme
+  :config
+  (load-theme 'zenburn t))
 
-;; customized option default for macbook pro display screen size (1440x800) and (1920x1200)
-;; (add-to-list 'default-frame-alist '(top . -400))  ;; 800 - 1200 (and still has 50 margin, magic)
-;; (add-to-list 'default-frame-alist '(left . 1490))  ;; 1440 + 50
+;; --- which-key (built-in Emacs 30) ---
+(use-package which-key
+  :ensure nil
+  :init
+  (which-key-mode)
+  :config
+  (setq which-key-idle-delay 0.5))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; PACKAGE: highlight-numbers         ;;
-;;                                    ;;
-;; GROUP: Faces -> Number Font Lock   ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(add-hook 'prog-mode-hook 'highlight-numbers-mode)
-
-(require 'highlight-symbol)
-
-(highlight-symbol-nav-mode)
-
-(add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
-(add-hook 'org-mode-hook (lambda () (highlight-symbol-mode)))
-
-(setq highlight-symbol-idle-delay 0.2
-      highlight-symbol-on-navigation-p t)
-
-(global-set-key [(control shift mouse-1)]
-                (lambda (event)
-                  (interactive "e")
-                  (goto-char (posn-point (event-start event)))
-                  (highlight-symbol-at-point)))
-
-(global-set-key (kbd "M-n") 'highlight-symbol-next)
-(global-set-key (kbd "M-p") 'highlight-symbol-prev)
-
-;; Customize theme: grandshell-theme-package
-(load-theme 'zenburn t)
-;; (load-theme 'grandshell t)
-
-;; Cursor position information
-;; display the line number at point
+;; Cursor position information — display the column number
 (column-number-mode 1)
 
-; completly turn off alarms:
+;; completely turn off alarms
 (setq ring-bell-function 'ignore)
 
-;; rebind of <home> and <end> keys for OSX
+;; rebind <home> and <end> keys for macOS
 (global-set-key (kbd "<home>") 'prelude-move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 
-;; change command to meta(alt)
+;; change command to meta(alt) on macOS
 (setq mac-command-modifier 'meta)
 
-;; SHELL MODE UI
-;; output and prompt read-only
+;; SHELL MODE UI — output and prompt read-only
 (setq comint-prompt-read-only t)
 (defun my-comint-preoutput-turn-buffer-read-only (text)
   (propertize text 'read-only t))
