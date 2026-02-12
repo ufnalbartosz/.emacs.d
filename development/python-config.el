@@ -2,7 +2,7 @@
 ;;
 ;; System dependencies:
 ;;   brew install pyright
-;;   pip install ruff
+;;   uv tool install ruff
 
 ;; --- Eglot (built-in LSP client) ---
 (use-package eglot

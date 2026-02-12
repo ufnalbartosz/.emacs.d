@@ -25,7 +25,7 @@ git clone https://github.com/<your-user>/.emacs.d.git ~/.emacs.d
 
 ```bash
 brew install pyright
-pip install ruff
+uv tool install ruff
 ```
 
 ### 4. Launch Emacs
