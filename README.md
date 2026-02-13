@@ -24,9 +24,11 @@ git clone https://github.com/<your-user>/.emacs.d.git ~/.emacs.d
 ### 3. Install system dependencies (for Python development)
 
 ```bash
-brew install pyright
+brew install pyright cmake
 uv tool install ruff
 ```
+
+`cmake` is needed for vterm's one-time native module compilation.
 
 ### 4. Launch Emacs
 
@@ -66,6 +68,7 @@ M-x treesit-install-language-grammar RET python RET
 | Expand-region | Incremental selection (`M-\`) |
 | which-key | Key binding discovery (built-in Emacs 30) |
 | project.el | Project management (built-in, `C-x p` prefix) |
+| vterm | Native-speed terminal emulator (`C-c t`) |
 | Zenburn | Color theme |
 
 ## Key Bindings
@@ -83,6 +86,7 @@ M-x treesit-install-language-grammar RET python RET
 | `C-.` | Embark act |
 | `C-c a` | Org agenda |
 | `C-c l` | Org store link |
+| `C-c t` | Open vterm terminal |
 
 ## Shell Wrappers
 
