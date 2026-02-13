@@ -106,6 +106,10 @@ alias ec="~/.emacs.d/emacsclient.sh"
 
 Includes a bundled `ttcn3.el` mode for TTCN-3 core language files (in `modes/`).
 
+## Cursor/VS Code
+
+Want a similar experience in Cursor or VS Code? See [cursor-setup.md](cursor-setup.md) for matching theme, keybindings, and settings.
+
 ## Theme
 
 [Zenburn](https://github.com/bbatsov/zenburn-emacs) — a low-contrast color theme.
