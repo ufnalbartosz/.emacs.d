@@ -61,7 +61,27 @@ cursor --install-extension leighmcculloch.vscode-emacs-expanded-region
   "emacs-friendly.killRingMax": 5000,
 
   // No alarm bell (ring-bell-function 'ignore)
-  "workbench.enableExperiments": false
+  "workbench.enableExperiments": false,
+
+  // Exclude noise from search and file finder (like .gitignore for Cursor)
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/__pycache__": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "**/*.egg-info": true,
+    "**/htmlcov": true,
+    "**/.mypy_cache": true,
+    "**/.ruff_cache": true,
+    "**/.pytest_cache": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.DS_Store": true
+  }
 }
 ```
 
