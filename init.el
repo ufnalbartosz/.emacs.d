@@ -73,6 +73,16 @@
 (use-package magit
   :bind ("C-c g" . magit-status))
 
+;; --- File explorer: Treemacs ---
+(use-package treemacs
+  :bind ("C-c e" . treemacs)
+  :config
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t))
+
+(use-package treemacs-magit
+  :after (treemacs magit))
+
 ;; --- Python ---
 (require 'python-config)
 
