@@ -24,11 +24,12 @@ git clone https://github.com/<your-user>/.emacs.d.git ~/.emacs.d
 ### 3. Install system dependencies (for Python development)
 
 ```bash
-brew install pyright cmake
+brew install pyright cmake ripgrep
 uv tool install ruff
 ```
 
-`cmake` is needed for vterm's one-time native module compilation.
+- `cmake` is needed for vterm's one-time native module compilation.
+- `ripgrep` (`rg`) is required by `consult-ripgrep` (`C-c s`) for project-wide search.
 
 ### 4. Launch Emacs
 
